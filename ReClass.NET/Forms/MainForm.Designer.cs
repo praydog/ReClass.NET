@@ -167,6 +167,8 @@ namespace ReClassNET.Forms
 			this.generateCSharpCodeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.saveXMLToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.saveAsXMLToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			((System.ComponentModel.ISupportInitialize)(this.splitContainer)).BeginInit();
 			this.splitContainer.Panel1.SuspendLayout();
 			this.splitContainer.Panel2.SuspendLayout();
@@ -1064,6 +1066,8 @@ namespace ReClassNET.Forms
             this.toolStripSeparator2,
             this.saveToolStripMenuItem,
             this.saveAsToolStripMenuItem,
+            this.saveXMLToolStripMenuItem,
+            this.saveAsXMLToolStripMenuItem,
             this.toolStripSeparator3,
             this.settingsToolStripMenuItem,
             this.pluginsToolStripMenuItem,
@@ -1367,6 +1371,21 @@ namespace ReClassNET.Forms
 			this.aboutToolStripMenuItem.Text = "About...";
 			this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
 			// 
+			// saveXMLToolStripMenuItem
+			// 
+			this.saveXMLToolStripMenuItem.Image = global::ReClassNET.Properties.Resources.B16x16_Save;
+			this.saveXMLToolStripMenuItem.Name = "saveXMLToolStripMenuItem";
+			this.saveXMLToolStripMenuItem.Size = new System.Drawing.Size(195, 22);
+			this.saveXMLToolStripMenuItem.Text = "Save (XML)";
+			// 
+			// saveAsXMLToolStripMenuItem
+			// 
+			this.saveAsXMLToolStripMenuItem.Image = global::ReClassNET.Properties.Resources.B16x16_Save_As;
+			this.saveAsXMLToolStripMenuItem.Name = "saveAsXMLToolStripMenuItem";
+			this.saveAsXMLToolStripMenuItem.Size = new System.Drawing.Size(195, 22);
+			this.saveAsXMLToolStripMenuItem.Text = "Save as (XML)...";
+			this.saveAsXMLToolStripMenuItem.Click += new System.EventHandler(this.saveAsXMLToolStripMenuItem_Click);
+			// 
 			// MainForm
 			// 
 			this.AllowDrop = true;
@@ -1542,6 +1561,8 @@ namespace ReClassNET.Forms
 		private System.Windows.Forms.ToolStripMenuItem showEnumsToolStripMenuItem;
 		private System.Windows.Forms.ToolStripSeparator toolStripSeparator23;
 		private System.Windows.Forms.ToolStripMenuItem isLittleEndianToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem saveXMLToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem saveAsXMLToolStripMenuItem;
 	}
 }
 

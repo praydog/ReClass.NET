@@ -27,14 +27,31 @@ namespace ReClassNET.DataExchange.ReClass
 			Contract.Requires(input != null);
 			Contract.Requires(logger != null);
 
-			using var archive = new ZipArchive(input, ZipArchiveMode.Read);
-			var dataEntry = archive.GetEntry(DataFileName);
-			if (dataEntry == null)
+			// Try to load compressed rcnet first, then try to just read it raw if it fails
+			// This allows for storing uncompressed rcnet files
+			try
 			{
-				throw new FormatException();
-			}
+				using var archive = new ZipArchive(input, ZipArchiveMode.Read);
+				var dataEntry = archive.GetEntry(DataFileName);
+				if (dataEntry == null)
+				{
+					throw new FormatException();
+				}
 
-			using var entryStream = dataEntry.Open();
+				LoadRaw(dataEntry.Open(), logger);
+			}
+			catch (InvalidDataException)
+			{
+				LoadRaw(input, logger);
+			}
+		}
+
+		public void LoadRaw(Stream input, ILogger logger)
+		{
+			Contract.Requires(input != null);
+			Contract.Requires(logger != null);
+
+			using var entryStream = input;
 			var document = XDocument.Load(entryStream);
 			if (document.Root?.Element(XmlClassesElement) == null)
 			{

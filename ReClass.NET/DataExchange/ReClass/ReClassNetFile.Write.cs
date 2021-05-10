@@ -20,6 +20,13 @@ namespace ReClassNET.DataExchange.ReClass
 			Save(fs, logger);
 		}
 
+		public void SaveRaw(string filePath, ILogger logger)
+		{
+			using var fs = new FileStream(filePath, FileMode.Create);
+
+			SaveRaw(fs, logger);
+		}
+
 		public void Save(Stream output, ILogger logger)
 		{
 			using var archive = new ZipArchive(output, ZipArchiveMode.Create);
@@ -27,21 +34,26 @@ namespace ReClassNET.DataExchange.ReClass
 			var dataEntry = archive.CreateEntry(DataFileName);
 			using var entryStream = dataEntry.Open();
 
+			SaveRaw(entryStream, logger);
+		}
+
+		public void SaveRaw(Stream output, ILogger logger)
+		{
 			var document = new XDocument(
-				new XComment($"{Constants.ApplicationName} {Constants.ApplicationVersion} by {Constants.Author}"),
-				new XComment($"Website: {Constants.HomepageUrl}"),
-				new XElement(
-					XmlRootElement,
-					new XAttribute(XmlVersionAttribute, FileVersion),
-					new XAttribute(XmlPlatformAttribute, Constants.Platform),
-					project.CustomData.Serialize(XmlCustomDataElement),
-					project.TypeMapping.Serialize(XmlTypeMappingElement),
-					new XElement(XmlEnumsElement, CreateEnumElements(project.Enums)),
-					new XElement(XmlClassesElement, CreateClassElements(project.Classes, logger))
+			new XComment($"{Constants.ApplicationName} {Constants.ApplicationVersion} by {Constants.Author}"),
+			new XComment($"Website: {Constants.HomepageUrl}"),
+			new XElement(
+				XmlRootElement,
+				new XAttribute(XmlVersionAttribute, FileVersion),
+				new XAttribute(XmlPlatformAttribute, Constants.Platform),
+				project.CustomData.Serialize(XmlCustomDataElement),
+				project.TypeMapping.Serialize(XmlTypeMappingElement),
+				new XElement(XmlEnumsElement, CreateEnumElements(project.Enums)),
+				new XElement(XmlClassesElement, CreateClassElements(project.Classes, logger))
 				)
 			);
 
-			document.Save(entryStream);
+			document.Save(output);
 		}
 
 		private static IEnumerable<XElement> CreateEnumElements(IEnumerable<EnumDescription> enums)

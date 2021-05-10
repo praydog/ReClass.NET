@@ -280,6 +280,24 @@ namespace ReClassNET.Forms
 			SetProject(new ReClassNetProject());
 		}
 
+		private void saveXMLToolStripMenuItem_Click(object sender, EventArgs e)
+		{
+			if (!currentProject.Classes.Any())
+			{
+				return;
+			}
+
+			if (string.IsNullOrEmpty(currentProject.Path))
+			{
+				saveAsToolStripMenuItem_Click(sender, e);
+
+				return;
+			}
+
+			var file = new ReClassNetFile(currentProject);
+			file.SaveRaw(currentProject.Path, Program.Logger);
+		}
+
 		private void saveToolStripMenuItem_Click(object sender, EventArgs e)
 		{
 			if (!currentProject.Classes.Any())
@@ -316,6 +334,27 @@ namespace ReClassNET.Forms
 				currentProject.Path = sfd.FileName;
 
 				saveToolStripMenuItem_Click(sender, e);
+			}
+		}
+
+		private void saveAsXMLToolStripMenuItem_Click(object sender, EventArgs e)
+		{
+			if (!currentProject.Classes.Any())
+			{
+				return;
+			}
+
+			using var sfd = new SaveFileDialog
+			{
+				DefaultExt = ReClassNetFile.FileExtension,
+				Filter = $"{ReClassNetFile.FormatName} (*{ReClassNetFile.FileExtension})|*{ReClassNetFile.FileExtension}"
+			};
+
+			if (sfd.ShowDialog() == DialogResult.OK)
+			{
+				currentProject.Path = sfd.FileName;
+
+				saveXMLToolStripMenuItem_Click(sender, e);
 			}
 		}
 
