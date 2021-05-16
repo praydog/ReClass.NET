@@ -140,6 +140,8 @@ namespace ReClassNET.Forms
 			this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
 			this.saveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.saveAsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.saveXMLToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.saveAsXMLToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
 			this.settingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.pluginsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -167,8 +169,6 @@ namespace ReClassNET.Forms
 			this.generateCSharpCodeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.saveXMLToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.saveAsXMLToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			((System.ComponentModel.ISupportInitialize)(this.splitContainer)).BeginInit();
 			this.splitContainer.Panel1.SuspendLayout();
 			this.splitContainer.Panel2.SuspendLayout();
@@ -1156,6 +1156,22 @@ namespace ReClassNET.Forms
 			this.saveAsToolStripMenuItem.Text = "Save as...";
 			this.saveAsToolStripMenuItem.Click += new System.EventHandler(this.saveAsToolStripMenuItem_Click);
 			// 
+			// saveXMLToolStripMenuItem
+			// 
+			this.saveXMLToolStripMenuItem.Image = global::ReClassNET.Properties.Resources.B16x16_Save;
+			this.saveXMLToolStripMenuItem.Name = "saveXMLToolStripMenuItem";
+			this.saveXMLToolStripMenuItem.Size = new System.Drawing.Size(195, 22);
+			this.saveXMLToolStripMenuItem.Text = "Save (XML)";
+			this.saveXMLToolStripMenuItem.Click += new System.EventHandler(this.saveXMLToolStripMenuItem_Click_1);
+			// 
+			// saveAsXMLToolStripMenuItem
+			// 
+			this.saveAsXMLToolStripMenuItem.Image = global::ReClassNET.Properties.Resources.B16x16_Save_As;
+			this.saveAsXMLToolStripMenuItem.Name = "saveAsXMLToolStripMenuItem";
+			this.saveAsXMLToolStripMenuItem.Size = new System.Drawing.Size(195, 22);
+			this.saveAsXMLToolStripMenuItem.Text = "Save as (XML)...";
+			this.saveAsXMLToolStripMenuItem.Click += new System.EventHandler(this.saveAsXMLToolStripMenuItem_Click);
+			// 
 			// toolStripSeparator3
 			// 
 			this.toolStripSeparator3.Name = "toolStripSeparator3";
@@ -1370,21 +1386,6 @@ namespace ReClassNET.Forms
 			this.aboutToolStripMenuItem.Size = new System.Drawing.Size(116, 22);
 			this.aboutToolStripMenuItem.Text = "About...";
 			this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
-			// 
-			// saveXMLToolStripMenuItem
-			// 
-			this.saveXMLToolStripMenuItem.Image = global::ReClassNET.Properties.Resources.B16x16_Save;
-			this.saveXMLToolStripMenuItem.Name = "saveXMLToolStripMenuItem";
-			this.saveXMLToolStripMenuItem.Size = new System.Drawing.Size(195, 22);
-			this.saveXMLToolStripMenuItem.Text = "Save (XML)";
-			// 
-			// saveAsXMLToolStripMenuItem
-			// 
-			this.saveAsXMLToolStripMenuItem.Image = global::ReClassNET.Properties.Resources.B16x16_Save_As;
-			this.saveAsXMLToolStripMenuItem.Name = "saveAsXMLToolStripMenuItem";
-			this.saveAsXMLToolStripMenuItem.Size = new System.Drawing.Size(195, 22);
-			this.saveAsXMLToolStripMenuItem.Text = "Save as (XML)...";
-			this.saveAsXMLToolStripMenuItem.Click += new System.EventHandler(this.saveAsXMLToolStripMenuItem_Click);
 			// 
 			// MainForm
 			// 

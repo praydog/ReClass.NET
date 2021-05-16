@@ -280,7 +280,7 @@ namespace ReClassNET.Forms
 			SetProject(new ReClassNetProject());
 		}
 
-		private void saveXMLToolStripMenuItem_Click(object sender, EventArgs e)
+		private void saveXMLToolStripMenuItem_Click_1(object sender, EventArgs e)
 		{
 			if (!currentProject.Classes.Any())
 			{
@@ -289,7 +289,7 @@ namespace ReClassNET.Forms
 
 			if (string.IsNullOrEmpty(currentProject.Path))
 			{
-				saveAsToolStripMenuItem_Click(sender, e);
+				saveAsXMLToolStripMenuItem_Click(sender, e);
 
 				return;
 			}
@@ -354,7 +354,7 @@ namespace ReClassNET.Forms
 			{
 				currentProject.Path = sfd.FileName;
 
-				saveXMLToolStripMenuItem_Click(sender, e);
+				saveXMLToolStripMenuItem_Click_1(sender, e);
 			}
 		}
 
